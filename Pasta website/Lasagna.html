@@ -1,0 +1,69 @@
+<!DOCTYPE html><!--Tipo de documento (html5)-->
+<html>    <!--Inicio del código-->
+
+  <head>
+    <meta charset="UTF-8"> <!--Tipo de codificación del documento (estandar UTF-8)-->
+    <title>Pasta: Lasagna</title> <!--Título de la pestaña del navegador-->
+    <link href="Styles/styles.css" rel="stylesheet" type="text/css"> <!--Llamado al documento de estilo css-->
+  </head>
+
+  <body>
+
+    <header> <!--Barra horizontal que siempre aparece en la parte superior de la pág-->
+      <div class="container"> <!--Clase contenedor que organiza la información-->
+        <a href="Index.html"><img class="icon"/></a> <!--El ícono de la parte superior izquierda es un hipervínculo a Index.html-->
+        <input type="checkbox" id="menu-bar"> <!--El ícono del menú desplegable es un checkbox-->
+        <label class="icon-menu" for="menu-bar"></label> <!--Ícono que reemplaza al checkbox-->
+        <nav class="menu"> <!--Elementos del menú desplegable-->
+          <a href="Index.html">Inicio</a>
+          <a href="History.html">Historia</a>
+          <a href="Spaghetti.html">Spaghetti</a>
+          <a href="Lasagna.html">Lasagna</a>
+          <a href="References.html">Referencias</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="banner"> <!--Imagen de comic que aparece al principio de la pág-->
+        <img src="Images/lasagna_garfield.jpg"/>
+      </section>
+
+      <h2>La Lasagna</h2>
+
+      <!--Section1 es la sección de fondo marrón claro en escritorio, y azul oscuro en móvil-->
+      <section id="section1">
+        <div class="container"> <!--Clase contenedor que organiza la información-->
+          <article><!--Article para hacer columnas y poder manipularlas-->
+            <p>
+            La lasagna es un tipo de pasta que se sirve en láminas, además de denominarse así también a un plato que tiene pasta en láminas intercaladas con carne (ragú o salsa boloñesa) y bechamel llamado lasaña al horno (Lasagna al forno). Se trata de un plato de origen griego/italiano.1 La lasaña al horno también se puede hacer con verduras (espinacas, berenjenas, etc.) o pescados.
+            </p>
+          </article>
+          <article> <!--Imagen y descripción-->
+            <img src="Images/lasagna_natures_perfect_food.jpg">
+          </article>
+        </div>
+      </section>
+
+      <!--Section2 es la sección de letras plata y fondo de madera-->
+      <section id="section2">
+        <div class="container"> <!--Clase contenedor que organiza la información-->
+          <article>
+            <img src="Images/lasagna2.jpg"> <!--Enlace de la imagen-->
+          </article>
+          <article>
+            <p>
+              Puedes encontrar una receta para hacer lasagna <a href="https://garfield.com/lasagna">aquí</a>. <!--Hipervínculo a una página externa dentro de la palabra "aquí"-->
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!--Pie de página-->
+    <footer>
+      <h4>Rubén Camilo Buelvas Villa - Gráfica Interactiva</h4> <!--Mensaje que aparece al final de la pág-->
+    </footer>
+
+  </body>
+</html>

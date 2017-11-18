@@ -1,0 +1,419 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Monda');
+
+/*SE AÑADEN LOS ICONOS DE FONTELLO*/
+/*Fontello: Inicio*/
+@font-face {
+  font-family: 'fontello';
+  src: url('../Fonts/Fontello/fontello.eot?46952357');
+  src: url('../Fonts/Fontello/fontello.eot?46952357#iefix') format('embedded-opentype'),
+       url('../Fonts/Fontello/fontello.woff2?46952357') format('woff2'),
+       url('../Fonts/Fontello/fontello.woff?46952357') format('woff'),
+       url('../Fonts/Fontello/fontello.ttf?46952357') format('truetype'),
+       url('../Fonts/Fontello/fontello.svg?46952357#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('../font/fontello.svg?46952357#fontello') format('svg');
+  }
+}
+*/
+
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.icon-menu:before { content: '\f0c9'; } /* '' */
+/*Fontello: Final*/
+
+
+
+/*Elimina todo el margen y padding del documento*/
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/*Establece un marrón claro como el color base de la página*/
+html{
+    background-color: #e0bb84;
+}
+
+/*Edita propiedades del body*/
+body{
+    margin: 0; /*El márgen es 0 (nada) para que la barra de navegación ocupe toda la página*/
+		font-family: 'Monda';
+    font-size: 22px; /*Toda la pág usará LatinText como fuente*/
+}
+
+/*Edita propiedades de la barra horizontal*/
+header{
+    width: 100%; /*Que cubra todo el ancho de la pág*/
+    height: 50px; /*La altura siempre será 50px*/
+    background: #dddddd; /*Se colorea de plata*/
+    position: fixed; /*Hace que siempre flote*/
+    top: 0; /*Top 0 y Left 0 Ubica la barra en la esquina de la pág*/
+    left: 0;
+    z-index: 100; /*Hace que la barra esté por encima de todos los otros elementos*/
+    border-bottom: solid #333333; /*Añade una línea gris en la parte inferior*/
+}
+
+
+
+.icon-menu{
+  color: #a12d2d; /*Color del menú desplegable*/
+}
+
+.icon{
+    float: left; /*Hace que el logo se mantenga al lado izquiedo en la barra*/
+    content: url("../Images/icon_dark.png"); /*Enlaza la imagen del logo*/
+    width: auto;
+    height: 50px; /*Iguala la altura del logo a la altura de la barra*/
+}
+
+/*Clase contenedor para organizar los contenidos de la página*/
+.container{
+    width: 780px; /*En la versión de escritorio los contenidos se presentan en un ancho de 780px*/
+    margin: auto;
+    align-content: center; /*Centra los elementos de la página*/
+}
+
+#menu-bar{
+    display: none; /*Oculta el checkbox del ícono del menú*/
+}
+
+/*Menú desplegable*/
+.menu{
+  /*Posiciona el menú justo debajo de la barra horizontal*/
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(161, 41, 41, 1); /*Fondo del menú*/
+  transition: all 0.3s; /*Tiempo de ejecución del desplazamiento*/
+  transform: translateX(100%); /*Inicia oculto a la derecha de la pág (desplazar 100% en X)*/
+}
+
+/*Elementos del menú desplegable*/
+.menu a{
+  display: block;
+  color: #dddddd;
+  height: 50px; /*Altura de 50px*/
+  text-decoration: none; /*Le quita el subrayado a los hipervínculos*/
+  padding: 15px; /*Añade un espacio de 15px alrededor de los elementos*/
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5); /*Línea que separa los elementos*/
+  text-align: left; /*Alínea el texto a la izquieda*/
+}
+
+
+/*Cuando el cursor se pone sobre los elementos se aclara el fondo en el objeto seleccionado*/
+.menu a:hover{
+  background: rgba(200, 200, 200, 0.3);
+}
+
+/*Si el checkbox se activa desplaza el menú*/
+#menu-bar:checked ~ .menu{
+  transform: translate(70%);
+}
+
+/*Ícono del menú desplegable*/
+header label{
+    float: right; /*Flota siempre a la derecha*/
+    font-size: 28px; /*Tamaño del ícono*/
+    margin: -5px 0; /*Alínea el ícono con la barra horizontal*/
+    cursor: pointer;
+}
+
+header .container{
+  display: table; /*Organiza los elementos de la barra horizontal*/
+}
+
+/*Las secciones tienen 100% de ancho y un espacio de 25px entre ellas*/
+section{
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+/*Imagen horizontal que aparece debajo del header*/
+#banner{
+  margin-top: 50px; /*Hace que la imagen aparezca justo debajo de la barra horizntal*/
+}
+
+#banner img{
+  width: 100%; /*Establece que el ancho del banner es toda la pág*/
+}
+
+
+/*Texto principal del index*/
+#welcome{
+  text-align: justify; /*Justifica el texto*/
+}
+
+/*Edita todos los párrafos*/
+p{
+    font-size: 20px;
+    color: #333333;
+}
+
+a{
+  color: #dddddd; /*El color por defecto de los hipervínculos será plata*/
+
+}
+
+/*Propiedades básicas de estilo para la etiqueta de texto H1*/
+h2{
+	  font-size: 50px;/*Tamaño de la fuente*/
+    color: #a12d2d; /*Color de fuente*/
+    text-align: center; /*Alineación del texto*/
+}
+
+h4{
+  font-size: 15px; /*Tamaño de la fuente en las etiquetas H4*/
+}
+
+/*Id de los elementos del mapa del sitio*/
+#submap{
+  margin-left: 50px; /*Crea una tabulación*/
+  text-align: left;
+}
+
+/*Sección de imágenes del index*/
+#welcome-images{
+  background-image: url("../Images/dark_wood_wallpaper.jpg"); /*Establece la madera oscura como fondo de esa sección*/
+  background-size: auto;
+}
+
+#welcome-images .container{
+  /*Hace que los elementos se centren y que se muestren en horizontal si hay espacio suficiente*/
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#welcome-images h2{
+  color: #dddddd; /*Establece el color de los H2 dentro de la sección indicada*/
+}
+
+#welcome-images h4{
+  color: #dddddd; /*Establece el color de los H4 dentro de la sección indicada*/
+  text-align: center;
+}
+
+#welcome-images article{
+  margin: 15px; /*Pone un margen de 15px entre los artículos de la sección*/
+}
+
+#welcome-images img{
+  width: 100%; /*Las imágenes se muestran en el ancho de la pág hasta un máximo de 230px*/
+  max-width: 230px;
+  border: 5px solid #dddddd; /*Añade un marco a las imágenes*/
+}
+
+/*Section1 son las secciones con el fondo marrón claro en escritorio y azul oscuro en móvil*/
+#section1 article{
+  margin: 15px; /*Pone un margen de 15px entre los artículos de la sección*/
+}
+
+#section1 img{
+  width: 100%; /*Las imágenes se muestran en el ancho de la pág hasta un máximo de 360px*/
+  max-width: 360px;
+  border: 5px solid #dddddd; /*Añade un marco a las imágenes*/
+}
+
+#section1 .container{
+  /*Hace que los elementos se centren y que se muestren en horizontal si hay espacio suficiente*/
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#section1 p{
+  width: 100%;
+  max-width: 360px;
+  text-align: justify;
+}
+
+#section1 h4{
+  text-align: center;
+}
+
+/*Section2 son las secciones con el fondo de madera oscuro y letra clara*/
+#section2{
+  background-image: url("../Images/dark_wood_wallpaper.jpg");
+  /*Establece la madera oscura como fondo de la sección*/
+  background-size: auto;
+}
+
+#section2 .container{
+  /*Hace que los elementos se centren y que se muestren en horizontal si hay espacio suficiente*/
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/*El color de todos los textos en esta sección será plata*/
+#section2 h2{
+  color: #dddddd;
+}
+
+#section2 h4{
+  color: #dddddd;
+  text-align: center;
+}
+
+#section2 article{
+  margin: 15px; /*Pone un margen de 15px entre los artículos de la sección*/
+}
+
+#section2 img{
+  width: 100%; /*Las imágenes se muestran en el ancho de la pág hasta un máximo de 360px*/
+  max-width: 360px;
+  border: 5px solid #dddddd; /*Añade un marco a las imágenes*/
+}
+
+#section2 p{
+  width: 100%;
+  max-width: 360px;
+  text-align: justify;
+  color: #dddddd;
+}
+
+#section1 a{
+  color: #333333;
+}
+
+/*Elemento que se encuentra al final de la pág con el texto "Rubén Camilo Buelvas Villa - Gráfica Interactiva"*/
+footer{
+  text-align: center; /*Alínea el texto al centro*/
+  color: #333333; /*El color del texto es gris oscuro*/
+}
+
+/*@media para cuando el navegador tiene un tamaño (horizontal) menor a 780 pixeles*/
+/*Cambia la paleta de colores*/
+@media (max-width: 780px){
+    html{
+      background-color: #2a3d4b; /*Cambia el fondo de la pág a un azul oscuro*/
+    }
+
+    /*Cambia la paleta de colores del header*/
+    header{
+      background: #2a3d4b;
+      border-bottom: solid #a12d2d;
+    }
+
+    .icon{
+        content: url("../Images/icon_light.png"); /*Cambia el logo que aparece en la esquina superior izquierda a una versión del mismo con colores claros*/
+    }
+
+    #welcome{
+      text-align: justify; /*Cambia la alineación del texto del index de centrado a justificado*/
+      margin-left: 5px; /*Añade margenes que antes no eran necesarios*/
+      margin-right: 5px;
+    }
+
+    p{
+        color: #dddddd; /*Cambia el color de los párrafos y achica la letra*/
+        font-size: 18px;
+    }
+
+    /*Cambia el color de los títulos y achica la letra*/
+    h2{
+        color: #dddddd;
+        font-size: 35px;
+    }
+
+    h4{
+      color: #dddddd
+    }
+
+    h5{
+      color: #dddddd;
+    }
+
+    .container{
+      width: 98%; /*El contenedor pasa de 780px de ancho al 98% de la página (creando un margen del 1% a cada lado)*/
+      margin-right: 10px; /*Crea un margen a la derecha pues la barra de desplazamiento cubría los elementos en algunos navegadores*/
+    }
+
+    .principalLogo{
+        content: url("../Images/icon_light.png"); /*Cambia el ícono al oscuro*/
+    }
+
+    .cornerLogo{
+        content: url("../Images/icon_dark.png"); /*Cambia el ícono al oscuro*/
+        text-align: center; /*Alineada al centro*/
+        margin: auto;
+    }
+
+    #section1 a{
+      color: #dddddd; /*Establede el color de los hipervínculos*/
+    }
+}
+
+/*@media para cuando el navegador tiene un tamaño (horizontal) menor a 480 pixeles*/
+/*Cambia el menú desplegable*/
+@media (max-width: 480px) {
+  .menu{
+    background: rgba(0, 0, 0, 0.7); /*Hace que el fondo del menú sea transparente*/
+  }
+
+  .menu a{
+    text-align: center; /*Cambia la alineación de los elementos del menú de izquierda al centro*/
+  }
+
+  #menu-bar:checked ~ .menu{
+    transform: translate(0%); /*Ya el menú no se desplaza una porción de la pág sino que la cubre toda*/
+  }
+
+ /*Achica la letra de los textos*/
+  p{
+      font-size: 15px;
+  }
+
+  h2{
+      font-size: 25px;
+  }
+
+  h5{
+    font-size: 10px;
+  }
+}
